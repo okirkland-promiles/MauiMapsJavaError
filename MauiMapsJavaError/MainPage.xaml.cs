@@ -2,15 +2,23 @@
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
-	{
-		InitializeComponent();
+    public MainPage()
+    {
+        InitializeComponent();
 
         Loaded += MainPage_Loaded;
-	}
+    }
 
-    private void MainPage_Loaded(object? sender, EventArgs e)
+    private async void MainPage_Loaded(object? sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new ContentPage());
+        await Navigation.PushModalAsync(new ContentPage()
+        {
+            Content = new Label()
+            {
+                Text = "Hello World",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            }
+        });
     }
 }
